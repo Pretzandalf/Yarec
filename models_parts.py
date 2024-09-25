@@ -71,8 +71,31 @@ class Bert_RUS(nn.Module):
 
         return out
 
-model = Bert(trainable = False, use_rus_version = True)
+class embedding_head(nn.Module):
+    def __init__(self,):
+        super().__init__()
+        self.
 
-a = model(['Привет'])
+class Base_embeddings_cat_features(nn.Module):
+    def __init__(self, num_embeddings, embedding_dim):
+        super().__init__()
+        self.num_embeddings = num_embeddings
+        self.embedding_dim = embedding_dim
 
-print(a)
+        self.embeddings = nn.Embedding(num_embeddings, embedding_dim)
+
+    def forward(self, cat_input):
+
+        print(self.embeddings(cat_input))
+
+        emb = self.embeddings(cat_input)
+
+
+
+
+
+
+
+model = Base_embeddings_cat_features(5, 4)
+
+model(torch.LongTensor(1))
